@@ -12,7 +12,7 @@ _Reference_: http://reactivex.io/documentation/contract.html
 * in the push model, the publisher pushes items to the subscriber
 * in the pull model, the subscriber pulls items from the publisher
 * Java8 streams are pull, iterator is pull
-* RxJava2 `Observable` is push
+* RxJava2 `Observable` is (in general) push (backpressure will be discussed in other repo)
 * push-pull duality
 
     |`Pull (Iterable)`   |`Push (Observable)`   |
@@ -41,12 +41,10 @@ with an `Observable` and `Observer`
     * Error event
 
 ## state
-* It can respond with an error
-* Never respond
-* Respond successfully with no data and terminate
-* Respond successfully with a single value and terminate
-* Respond successfully with multiple values and terminate
-* Respond successfully with one or more values and never terminate
+`Observable` can respond:
+* with an error
+* with zero or more values and terminate
+* with zero or more values and never terminate
 
 ## notifications
 `Observable` communicates with its observers with the following notifications:
