@@ -1,5 +1,5 @@
 # java-reactive-programming-rxjava2-Observable-Single-Completable-theory
-Theoretical overview of RxJava2 foundations: Observable, Single, Completable.
+Theoretical overview of RxJava2 foundations: `Observable`, `Single`, `Completable`.
 
 _Reference_: https://www.amazon.com/Reactive-Programming-RxJava-Asynchronous-Applications/dp/1491931655  
 _Reference_: http://reactivex.io/documentation/contract.html
