@@ -69,3 +69,14 @@ with an `Observable` and `Observer`
         * `Observers` do not need to issue an `Unsubscribe` notification to end subscriptions that are ended by the 
         `Observable` in this way
 ## Hot and Cold
+* **Cold `Observable`**
+    * is entirely lazy and never begins to emit events until someone is actually interested
+    * likely every subscriber receives its own copy of the stream
+    * often involves a side effect - the database is queried or a HTTP connection is opened
+    * example: a file download. It won’t start pulling the bytes if no one want the file
+* **Hot `Observable`**
+    * pushes events downstream, even if no one is actually interested
+    * typically occurs when we have absolutely no control over the source of events
+    * the instant when a given value was generated is very significant because it
+      places the event on the timescale
+    * example: mouse movements, stock price, temperature
