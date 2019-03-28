@@ -4,7 +4,6 @@ Theoretical overview of RxJava2 foundations: Observable, Single, Completable.
 _Reference_: http://reactivex.io/documentation/contract.html
 
 # Observable
-* it will be valuable to read: https://github.com/mtumilowicz/java9-reactive-streams
 * represents a stream of data or events
     ```
     Observable.fromIterable(List.of("A", "B", "C"))
@@ -57,5 +56,6 @@ _Reference_: http://reactivex.io/documentation/contract.html
 |`T next()`   |`onNext(T)`   |
 |`throws Exception`   |`onError(Throwable)`   |
 |`returns`   |`onCompleted()`   |
+
 it means anything you can do synchronously with an `Iterable` and `Iterator` can be done asynchronously 
 with an `Observable` and `Observer`
