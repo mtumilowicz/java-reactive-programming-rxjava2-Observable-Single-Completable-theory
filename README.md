@@ -39,7 +39,15 @@ with an `Observable` and `Observer`
     * Values of type `T`
     * Completion event
     * Error event
-  
+
+## state
+* It can respond with an error
+* Never respond
+* Respond successfully with no data and terminate
+* Respond successfully with a single value and terminate
+* Respond successfully with multiple values and terminate
+* Respond successfully with one or more values and never terminate
+
 ## notifications
 `Observable` communicates with its observers with the following notifications:
 * `OnNext` - conveys data to the observer
