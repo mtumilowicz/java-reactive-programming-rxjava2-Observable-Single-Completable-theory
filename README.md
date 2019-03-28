@@ -1,6 +1,7 @@
 # java-reactive-programming-rxjava2-Observable-Single-Completable-theory
 Theoretical overview of RxJava2 foundations: Observable, Single, Completable.
 
+_Reference_: https://www.amazon.com/Reactive-Programming-RxJava-Asynchronous-Applications/dp/1491931655  
 _Reference_: http://reactivex.io/documentation/contract.html
 
 # push vs pull
@@ -27,6 +28,11 @@ with an `Observable` and `Observer`
     ```
     Observable.fromIterable(List.of("A", "B", "C"))
     ```
+* simple example: tweets are a stream of data
+* `Observable<T>` produces three types of events:
+  * Values of type `T`
+  * Completion event
+  * Error event
 * communicates with its observers with the following notifications:
     * `OnNext` - conveys data to the observer
     * `OnCompleted` - indicates that 
@@ -80,3 +86,15 @@ with an `Observable` and `Observer`
     * the instant when a given value was generated is very significant because it
       places the event on the timescale
     * example: mouse movements, stock price, temperature
+    
+# Single vs Observable
+* is a lazy equivalent of a `Future`
+* is a "stream of one"
+* simplifies consumption:
+    * It can respond with an error
+    * Never respond
+    * Respond with a success
+
+# Completable vs Observable
+* no return type, models just the need to represent successful or failure
+* example: `Completable c = saveUser(user);`
