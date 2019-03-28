@@ -51,6 +51,12 @@ _Reference_: http://reactivex.io/documentation/contract.html
         `Observable` in this way
         
 # push vs pull
+* In the push model, the publisher pushes items to the subscriber.
+* In the pull model, the subscriber pulls items from the publisher.
+* example: 
+    * java 8 streams are pull, iterator is pull
+    * RxJava2 Observable is push
+    
 |`Pull (Iterable)`   |`Push (Observable)`   |
 |---|---|
 |`T next()`   |`onNext(T)`   |
