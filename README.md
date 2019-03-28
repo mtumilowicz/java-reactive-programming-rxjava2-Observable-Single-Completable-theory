@@ -5,9 +5,10 @@ _Reference_: https://www.amazon.com/Reactive-Programming-RxJava-Asynchronous-App
 _Reference_: http://reactivex.io/documentation/contract.html
 
 # push vs pull
-* elementary example: in `Stream.of(1).forEach(System.out::println);`:
-    * `Stream` - publisher
-    * `System.out::println` - consumer
+* elementary example to set intuition: 
+    * in `Stream.of(1).forEach(System.out::println)`:
+        * `Stream` - publisher
+        * `System.out::println` - consumer
 * In the push model, the publisher pushes items to the subscriber.
 * In the pull model, the subscriber pulls items from the publisher.
 * Java8 streams are pull, iterator is pull
