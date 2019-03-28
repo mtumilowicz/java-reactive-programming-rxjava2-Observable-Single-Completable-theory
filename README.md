@@ -12,7 +12,8 @@ _Reference_: http://reactivex.io/documentation/contract.html
 * in the push model, the publisher pushes items to the subscriber
 * in the pull model, the subscriber pulls items from the publisher
 * Java8 streams are pull, iterator is pull
-* RxJava2 `Observable` is (in general) push (backpressure will be discussed in other repo)
+* RxJava2 `Observable` is (in general) push but could switch to pull when consumer is overflowed by data
+(backpressure will be discussed in other repo)
 * push-pull duality
 
     |`Pull (Iterable)`   |`Push (Observable)`   |
