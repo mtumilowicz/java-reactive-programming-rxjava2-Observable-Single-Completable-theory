@@ -5,7 +5,7 @@ _Reference_: https://www.amazon.com/Reactive-Programming-RxJava-Asynchronous-App
 _Reference_: http://reactivex.io/documentation/contract.html
 
 # push vs pull
-* `Stream.of(1).forEach(System.out::println);`
+* elementary example: in `Stream.of(1).forEach(System.out::println);`
     * `Stream` - publisher
     * `System.out::println` - consumer
 * In the push model, the publisher pushes items to the subscriber.
