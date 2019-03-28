@@ -29,6 +29,10 @@ _Reference_: http://reactivex.io/documentation/contract.html
     * it may then follow those emission notifications by either an `OnCompleted` or an `OnError` notification, 
     but not both
     * after `OnCompleted` or `OnError` it may not thereafter issue any further notifications
+    * `OnError` notification must contain the cause of the error (that is to say, it is invalid to call 
+    `OnError` with a `null` value)
+    * Before an `Observable` terminates it must first issue either an `OnCompleted` or `OnError` notification to 
+    all of the observers that are subscribed to it
     * `Observables` must issue notifications to observers serially (not in parallel).
     * They may issue these notifications from different threads, but there must be a formal happens-before 
     relationship between the notifications
@@ -48,3 +52,10 @@ _Reference_: http://reactivex.io/documentation/contract.html
             }).start();
         });
         ```
+* subscribing, unsubscribing
+    * it is not guaranteed, that the `Observable` will issue no notifications to the observer after an 
+    observer issues it an `Unsubscribe` notification
+    * When an `Observable` issues an `OnError` or `OnComplete` notification to its observers, this ends the 
+    subscription
+        * `Observers` do not need to issue an `Unsubscribe` notification to end subscriptions that are ended by the 
+        `Observable` in this way
