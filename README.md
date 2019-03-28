@@ -42,7 +42,7 @@ with an `Observable` and `Observer`
 
 ## response types
 `Observable` can respond:
-* with an error
+* with zero or more values and error
 * with zero or more values and terminate
 * with zero or more values and never terminate
 
