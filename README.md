@@ -49,10 +49,10 @@ with an `Observable` and `Observer`
 ## notifications
 `Observable` communicates with its observers with the following notifications:
 * `OnNext` - conveys data to the observer
-* `OnCompleted` - indicates that 
+* `OnCompleted` - indicates that:
     * `Observable` has completed successfully
     * it will be emitting no further items
-* `OnError` - indicates that
+* `OnError` - indicates that:
     * `Observable` has terminated with a specified error condition
     * it will be emitting no further items
 
@@ -61,10 +61,8 @@ with an `Observable` and `Observer`
 * it may then follow by either (not both) an `OnCompleted` or an `OnError`
 * after `OnCompleted` or `OnError` - no further notifications
 * `OnError` must contain the cause of the error (`OnError` with a `null` value is invalid)
-* before an `Observable` terminates it must first issue either an `OnCompleted` or `OnError` to 
-all of the observers that are subscribed to it
 * `Observables` must issue notifications to observers serially (not in parallel)
-* they may issue these notifications from different threads, but there must be a formal happens-before 
+* `Observables` may issue these notifications from different threads, but there must be a formal happens-before 
 relationship between the notifications
     ```
     // ILLEGAL
@@ -88,12 +86,11 @@ relationship between the notifications
     * is entirely lazy and never begins to emit events until someone is actually interested
     * likely every subscriber receives its own copy of the stream
     * often involves a side effect - the database is queried or a HTTP connection is opened
-    * example: a file download. It won’t start pulling the bytes if no one want the file
+    * example: a file download - it won’t start pulling the bytes if no one want the file
 * **Hot `Observable`**
     * pushes events downstream, even if no one is actually interested
     * typically occurs when we have absolutely no control over the source of events
-    * the instant when a given value was generated is very significant because it
-      places the event on the timescale
+    * the instant when a given value was generated matters
     * example: mouse movements, stock price, temperature
     
 # Single vs Observable
@@ -105,5 +102,5 @@ relationship between the notifications
     * Respond with a success
 
 # Completable vs Observable
-* no return type, models just the need to represent successful or failure
+* no return type, represents successful or failure
 * example: `Completable c = saveUser(user);`
