@@ -40,7 +40,7 @@ with an `Observable` and `Observer`
     * Completion event
     * Error event
 
-## state
+## response types
 `Observable` can respond:
 * with an error
 * with zero or more values and terminate
