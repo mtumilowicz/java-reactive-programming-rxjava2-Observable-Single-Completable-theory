@@ -3,6 +3,22 @@ Theoretical overview of RxJava2 foundations: Observable, Single, Completable.
 
 _Reference_: http://reactivex.io/documentation/contract.html
 
+# push vs pull
+* In the push model, the publisher pushes items to the subscriber.
+* In the pull model, the subscriber pulls items from the publisher.
+* example: 
+    * java 8 streams are pull, iterator is pull
+    * RxJava2 Observable is push
+    
+|`Pull (Iterable)`   |`Push (Observable)`   |
+|---|---|
+|`T next()`   |`onNext(T)`   |
+|`throws Exception`   |`onError(Throwable)`   |
+|`returns`   |`onCompleted()`   |
+
+it means anything you can do synchronously with an `Iterable` and `Iterator` can be done asynchronously 
+with an `Observable` and `Observer`
+
 # Observable
 * represents a stream of data or events
     ```
@@ -49,19 +65,4 @@ _Reference_: http://reactivex.io/documentation/contract.html
     subscription
         * `Observers` do not need to issue an `Unsubscribe` notification to end subscriptions that are ended by the 
         `Observable` in this way
-        
-# push vs pull
-* In the push model, the publisher pushes items to the subscriber.
-* In the pull model, the subscriber pulls items from the publisher.
-* example: 
-    * java 8 streams are pull, iterator is pull
-    * RxJava2 Observable is push
-    
-|`Pull (Iterable)`   |`Push (Observable)`   |
-|---|---|
-|`T next()`   |`onNext(T)`   |
-|`throws Exception`   |`onError(Throwable)`   |
-|`returns`   |`onCompleted()`   |
-
-it means anything you can do synchronously with an `Iterable` and `Iterator` can be done asynchronously 
-with an `Observable` and `Observer`
+## Hot and Cold
