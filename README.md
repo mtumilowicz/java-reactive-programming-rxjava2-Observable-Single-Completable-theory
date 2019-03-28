@@ -4,19 +4,22 @@ Theoretical overview of RxJava2 foundations: Observable, Single, Completable.
 _Reference_: http://reactivex.io/documentation/contract.html
 
 # push vs pull
+* `Stream.of(1).forEach(System.out::println);`
+    * `Stream` - publisher
+    * `System.out::println` - consumer
 * In the push model, the publisher pushes items to the subscriber.
 * In the pull model, the subscriber pulls items from the publisher.
-* example: 
-    * java 8 streams are pull, iterator is pull
-    * RxJava2 Observable is push
-    
-|`Pull (Iterable)`   |`Push (Observable)`   |
-|---|---|
-|`T next()`   |`onNext(T)`   |
-|`throws Exception`   |`onError(Throwable)`   |
-|`returns`   |`onCompleted()`   |
+* Java8 streams are pull, iterator is pull
+* RxJava2 Observable is push
+* push-pull duality
 
-it means anything you can do synchronously with an `Iterable` and `Iterator` can be done asynchronously 
+    |`Pull (Iterable)`   |`Push (Observable)`   |
+    |---|---|
+    |`T next()`   |`onNext(T)`   |
+    |`throws Exception`   |`onError(Throwable)`   |
+    |`returns`   |`onCompleted()`   |
+
+    it means anything you can do synchronously with an `Iterable` and `Iterator` can be done asynchronously 
 with an `Observable` and `Observer`
 
 # Observable
