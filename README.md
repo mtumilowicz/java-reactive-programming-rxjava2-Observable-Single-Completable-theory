@@ -103,5 +103,5 @@ relationship between the notifications
     * Respond with a success
 
 # Completable vs Observable
-* no return type, represents successful or failure
+* no return type - represents success or failure
 * example: `Completable c = saveUser(user);`
