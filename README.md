@@ -14,7 +14,7 @@ _Reference_: http://reactivex.io/documentation/contract.html
 * Java8 streams are pull, iterator is pull
 * RxJava2 `Observable` is (in general) push but could switch to pull when consumer is overflowed by data
 (backpressure will be discussed in other repo)
-* push-pull duality
+* push-pull correspondence
 
     |`Pull (Iterable)`   |`Push (Observable)`   |
     |---|---|
@@ -22,8 +22,8 @@ _Reference_: http://reactivex.io/documentation/contract.html
     |`throws Exception`   |`onError(Throwable)`   |
     |`returns`   |`onCompleted()`   |
 
-    it means anything you can do synchronously with an `Iterable` and `Iterator` can be done asynchronously 
-with an `Observable` and `Observer`
+    it means anything that can be done with `Iterable` and `Iterator` can be done using `Observable` and `Observer`
+    as well
 
 # Observable
 * represents a stream of data or events
