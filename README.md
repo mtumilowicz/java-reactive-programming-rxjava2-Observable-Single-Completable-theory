@@ -26,7 +26,7 @@ _Reference_: http://reactivex.io/documentation/contract.html
     as well
 
 # Observable
-* represents a stream of data or events
+* represents a stream of events
 * elementary example to set intuition:
     ```
     Observable.fromIterable(List.of("A", "B", "C"))
