@@ -52,21 +52,21 @@ _Reference_: http://reactivex.io/documentation/contract.html
 * `OnNext` - conveys data to the observer
 * `OnCompleted` - indicates that:
     * `Observable` has completed successfully
-    * it will be emitting no further items
+    * no further items
 * `OnError` - indicates that:
     * `Observable` has terminated with a specified error condition
-    * it will be emitting no further items
+    * no further items
 
 ### contract
 * an `Observable` may make zero or more `OnNext` notifications
-* it may then follow by either (not both) an `OnCompleted` or an `OnError`
+* it may then follow by either (not both) `OnCompleted` or `OnError`
 * after `OnCompleted` or `OnError` - no further notifications
 * `OnError` must contain the cause of the error (`OnError` with a `null` value is invalid)
-* `Observables` must issue notifications to observers serially (not in parallel)
-* `Observables` may issue these notifications from different threads, but there must be a formal happens-before 
+* `Observables` must issue notifications serially (not in parallel)
+* `Observables` may issue notifications from different threads, but there must be a formal happens-before 
 relationship between the notifications
+* simple example of illegal, concurrent modifications:
     ```
-    // ILLEGAL
     Observable.create(s -> {
         // FIRST THREAD
         new Thread(() -> {
@@ -87,21 +87,21 @@ relationship between the notifications
     * is entirely lazy and never begins to emit events until someone is actually interested
     * likely every subscriber receives its own copy of the stream
     * often involves a side effect - the database is queried or a HTTP connection is opened
-    * example: a file download - it won’t start pulling the bytes if no one want the file
+    * example: a file download - it won’t start pulling the bytes if no one wants the file
 * **Hot `Observable`**
     * pushes events downstream, even if no one is actually interested
     * typically occurs when we have absolutely no control over the source of events
-    * the instant when a given value was generated matters
     * example: mouse movements, stock price, temperature
     
-# Single vs Observable
+# Single
 * is a lazy equivalent of a `Future`
 * is a "stream of one"
+* cannot be empty (it is not equivalent of `Optional`)
 * simplifies consumption:
-    * It can respond with an error
-    * Never respond
-    * Respond with a success
+    * it can respond with an error
+    * never respond
+    * respond with a success
 
-# Completable vs Observable
+# Completabl
 * no return type - represents success or failure
 * example: `Completable c = saveUser(user);`
